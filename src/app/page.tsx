@@ -2,69 +2,115 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center">
+    <div className="min-h-full bg-[#0A0C10] text-white">
       {/* Hero Section */}
-      <section className="w-full bg-white py-20 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Dev Utility Belt
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <div className="max-w-3xl">
+          {/* Logo */}
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-600 mb-8">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+
+          {/* Hero Content */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            Essential tools for developers
           </h1>
-          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-            Your all-in-one toolkit for common development tasks. Fast, reliable, and easy to use.
+          <p className="text-xl text-gray-400 mb-8 max-w-2xl">
+            Get access to 10+ tools including diff viewer, JSON validator, unix time converter, regex matcher, character counter, and more.
           </p>
           <Link
-            href="/utility-belt"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+            href="/tools"
+            className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
           >
-            Open Utility Belt
+            Take me to the tools
+            <span className="ml-2">→</span>
           </Link>
         </div>
-      </section>
+      </div>
 
-      {/* Features Section */}
-      <section className="w-full bg-gray-50 py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Available Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "JSON Validator",
-                description: "Validate and format JSON data with ease",
-                icon: "🔍"
-              },
-              {
-                title: "Unix Time Converter",
-                description: "Convert between Unix timestamps and human-readable dates",
-                icon: "⏰"
-              },
-              {
-                title: "Base64 Encoder",
-                description: "Encode and decode Base64 strings",
-                icon: "🔐"
-              },
-              {
-                title: "Regex Checker",
-                description: "Test and validate regular expressions",
-                icon: "✨"
-              },
-              {
-                title: "JSON to YAML",
-                description: "Convert JSON data to YAML format",
-                icon: "🔄"
-              }
-            ].map((tool, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="text-4xl mb-4">{tool.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{tool.title}</h3>
-                <p className="text-gray-700">{tool.description}</p>
+      {/* Tool Preview Section */}
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div className="bg-[#1C1E24] rounded-2xl shadow-2xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-5 min-h-[600px]">
+            {/* Sidebar */}
+            <div className="lg:col-span-1 bg-[#15171B] border-r border-gray-800">
+              <nav className="py-4">
+                {[
+                  "JSON Validator",
+                  "String Converter",
+                  "Character/Word Counter",
+                  "Unix Time Converter",
+                  "Base64 Encoder",
+                  "URI Parser",
+                  "Color Converter",
+                  "Hash Generator",
+                  "Link Sort And Dedupe",
+                  "Regex Checker",
+                  "Diff Viewer"
+                ].map((tool, index) => (
+                  <button
+                    key={index}
+                    className={`w-full px-4 py-2 text-sm text-left ${
+                      index === 0
+                        ? 'bg-[#1C1E24] text-white'
+                        : 'text-gray-400 hover:bg-[#1C1E24] hover:text-white'
+                    } transition-colors duration-150`}
+                  >
+                    {tool}
+                  </button>
+                ))}
+              </nav>
+            </div>
+
+            {/* Main Content Area */}
+            <div className="lg:col-span-4 bg-[#1C1E24] p-6">
+              <div className="flex justify-between items-center mb-4">
+                <div className="text-sm text-gray-400">Input:</div>
+                <button className="px-3 py-1 text-sm bg-[#15171B] text-gray-400 rounded hover:text-white transition-colors">
+                  Clear
+                </button>
               </div>
-            ))}
+              <div className="h-[500px] rounded-lg bg-[#15171B] p-4">
+                <pre className="font-mono text-sm text-gray-300">
+                  {`{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "Sample JSON"
+}`}
+                </pre>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+
+      {/* Footer Section */}
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+        <p className="text-sm text-indigo-500 font-medium tracking-wide uppercase mb-4">
+          All your essential tools in one place
+        </p>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-12">
+          Did we mention Dev Utility Belt is free to use and open source?
+        </h2>
+        <div className="flex justify-center gap-8">
+          {[
+            { icon: '📦', label: 'Install' },
+            { icon: '⭐', label: 'Star' },
+            { icon: '🔧', label: 'Configure' }
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="w-12 h-12 bg-[#15171B] rounded-xl flex items-center justify-center"
+            >
+              <span className="text-2xl" role="img" aria-label={item.label}>
+                {item.icon}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
