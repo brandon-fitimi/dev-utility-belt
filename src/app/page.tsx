@@ -9,7 +9,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             Dev Utility Belt
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
             Your all-in-one toolkit for common development tasks. Fast, reliable, and easy to use.
           </p>
           <Link
@@ -59,7 +59,7 @@ export default function Home() {
               >
                 <div className="text-4xl mb-4">{tool.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{tool.title}</h3>
-                <p className="text-gray-600">{tool.description}</p>
+                <p className="text-gray-700">{tool.description}</p>
               </div>
             ))}
           </div>
