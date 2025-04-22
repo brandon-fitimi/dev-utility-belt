@@ -6,6 +6,7 @@ export default function JsonValidator() {
   const [input, setInput] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [formatted, setFormatted] = useState('');
+  const [copied, setCopied] = useState(false);
 
   const validateAndFormat = (jsonString: string) => {
     try {
@@ -18,6 +19,24 @@ export default function JsonValidator() {
     }
   };
 
+  const handleCopy = async () => {
+    if (formatted) {
+      try {
+        await navigator.clipboard.writeText(formatted);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (err) {
+        console.error('Failed to copy text: ', err);
+      }
+    }
+  };
+
+  const handleClear = () => {
+    setInput('');
+    setFormatted('');
+    setError(null);
+  };
+
   return (
     <div className="max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">JSON Validator</h1>
@@ -28,9 +47,18 @@ export default function JsonValidator() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Input Section */}
         <div className="space-y-4">
-          <label className="block text-sm font-medium text-gray-700">
-            Input JSON
-          </label>
+          <div className="flex justify-between items-center">
+            <label className="block text-sm font-medium text-gray-700">
+              Input JSON
+            </label>
+            <button
+              onClick={handleClear}
+              disabled={!input}
+              className="px-3 py-1 text-sm bg-gray-50 text-gray-600 rounded hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Clear
+            </button>
+          </div>
           <textarea
             value={input}
             onChange={(e) => {
@@ -44,9 +72,18 @@ export default function JsonValidator() {
 
         {/* Output Section */}
         <div className="space-y-4">
-          <label className="block text-sm font-medium text-gray-700">
-            Formatted JSON
-          </label>
+          <div className="flex justify-between items-center">
+            <label className="block text-sm font-medium text-gray-700">
+              Formatted JSON
+            </label>
+            <button
+              onClick={handleCopy}
+              disabled={!formatted}
+              className="px-3 py-1 text-sm bg-blue-50 text-blue-600 rounded hover:bg-blue-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {copied ? 'Copied!' : 'Copy'}
+            </button>
+          </div>
           <div className="w-full h-150 p-4 border border-gray-300 rounded-lg font-mono text-sm bg-gray-50 overflow-auto">
             {error ? (
               <div className="text-red-600">{error}</div>
