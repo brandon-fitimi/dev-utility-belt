@@ -11,6 +11,7 @@ const tools = [
   { name: 'JSON to YAML', path: '/utility-belt/json-to-yaml' },
   { name: 'Diff View', path: '/utility-belt/diff-view' },
   { name: 'QR Code Generator', path: '/utility-belt/qr-code' },
+  { name: 'Hash Generator', path: '/utility-belt/hash-generator' },
 ];
 
 export default function UtilityBeltLayout({
