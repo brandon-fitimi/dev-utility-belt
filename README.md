@@ -34,3 +34,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## Deploy
+./deploy.sh
+scp -i /Users/brandonschmidt/.ssh/LightsailDefaultKey-us-east-1.pem -r deploy/* bitnami@34.239.20.134:/home/bitnami/app/
+
+After SSH
+cd /home/bitnami/app
+./start.sh
+
+
+## You can use these PM2 commands to manage your application:
+pm2 logs dev-utility-belt - View logs
+pm2 monit - Monitor the application
+pm2 restart dev-utility-belt - Restart the application
+pm2 stop dev-utility-belt - Stop the application
+pm2 delete dev-utility-belt - Remove the application from PM2

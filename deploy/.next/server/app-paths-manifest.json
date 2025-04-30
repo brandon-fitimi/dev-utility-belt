@@ -1,0 +1,15 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/utility-belt/hash-generator/page": "app/utility-belt/hash-generator/page.js",
+  "/utility-belt/json-to-yaml/page": "app/utility-belt/json-to-yaml/page.js",
+  "/utility-belt/diff-view/page": "app/utility-belt/diff-view/page.js",
+  "/utility-belt/regex/page": "app/utility-belt/regex/page.js",
+  "/utility-belt/json-validator/page": "app/utility-belt/json-validator/page.js",
+  "/utility-belt/page": "app/utility-belt/page.js",
+  "/utility-belt/unix-time-converter/page": "app/utility-belt/unix-time-converter/page.js",
+  "/utility-belt/url-parser/page": "app/utility-belt/url-parser/page.js",
+  "/utility-belt/qr-code/page": "app/utility-belt/qr-code/page.js",
+  "/utility-belt/base64/page": "app/utility-belt/base64/page.js"
+}
