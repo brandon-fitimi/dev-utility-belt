@@ -43,9 +43,17 @@ export default function DiffView() {
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label htmlFor="text1" className="block text-sm font-medium text-gray-700 mb-2">
-            First Text
-          </label>
+          <div className="flex justify-between items-center mb-2">
+            <label htmlFor="text1" className="block text-sm font-medium text-gray-700">
+              First Text
+            </label>
+            <button
+              onClick={() => setText1('')}
+              className="text-sm text-gray-500 hover:text-gray-700 px-2 py-1 rounded hover:bg-gray-100"
+            >
+              Clear
+            </button>
+          </div>
           <textarea
             id="text1"
             value={text1}
@@ -56,9 +64,17 @@ export default function DiffView() {
         </div>
 
         <div>
-          <label htmlFor="text2" className="block text-sm font-medium text-gray-700 mb-2">
-            Second Text
-          </label>
+          <div className="flex justify-between items-center mb-2">
+            <label htmlFor="text2" className="block text-sm font-medium text-gray-700">
+              Second Text
+            </label>
+            <button
+              onClick={() => setText2('')}
+              className="text-sm text-gray-500 hover:text-gray-700 px-2 py-1 rounded hover:bg-gray-100"
+            >
+              Clear
+            </button>
+          </div>
           <textarea
             id="text2"
             value={text2}
