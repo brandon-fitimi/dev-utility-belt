@@ -9,6 +9,7 @@ const tools = [
   { name: 'Regex Checker', path: '/utility-belt/regex' },
   { name: 'URL Parser', path: '/utility-belt/url-parser' },
   { name: 'JSON to YAML', path: '/utility-belt/json-to-yaml' },
+  { name: 'Diff View', path: '/utility-belt/diff-view' },
 ];
 
 export default function UtilityBeltLayout({
